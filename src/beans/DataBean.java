@@ -7,6 +7,8 @@ import model.Validator;
 import javax.annotation.ManagedBean;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,7 +21,6 @@ public class DataBean implements Serializable {
     private String lastOffset = "-180";
     private String canvasX;
     private String canvasY;
-    private boolean lastHit;
     private List<Point> history;
     private String username;
     private DatabaseManager db = new DatabaseManager();
@@ -42,32 +43,41 @@ public class DataBean implements Serializable {
     }
 
     public void addPoint() {
-        Point p = new Point(lastX, lastY, lastR);
-        p.setUsername(username);
-        Validator.check(p, lastX, lastY, lastR, lastOffset);
-        lastHit = p.isHit();
+        Point p = new Point(lastX, lastY, lastR, Integer.parseInt(lastOffset), username);
+        if (lastX.length() > 6 || lastR.length() > 6 || lastY.length() > 6) {
+            BigDecimal bigR = new BigDecimal(lastR),
+                    bigX = new BigDecimal(lastX),
+                    bigY = new BigDecimal(lastY);
+            Validator.bigNumbersCheck(p, bigX, bigY, bigR);
+        } else Validator.check(p);
         if (username != null) {
             history = db.getList(username);
             history.add(p);
-            db.add(p, username);
+            db.add(p);
         }
     }
 
     public void addCanvasPoint() {
-        Point p = new Point(canvasX, canvasY, lastR);
+        Point p = new Point(canvasX, canvasY, lastR, Integer.parseInt(lastOffset), username);
         p.setUsername(username);
-        Validator.check(p, canvasX, canvasY, lastR, lastOffset);
-        lastHit = p.isHit();
+        OffsetDateTime currentDate = OffsetDateTime.now();
+        int offset = Integer.parseInt(lastOffset);
+        int serverOffset = -180;
+        offset -= serverOffset;
+        currentDate = currentDate.plusMinutes(offset);
+        p.setTime(currentDate);
+
+        Validator.check(p);
         if (username != null) {
             history = db.getList(username);
             history.add(p);
-            db.add(p, username);
+            db.add(p);
         }
     }
 
     public void clearHistory() {
         history = new LinkedList<>();
-        assert username!=null;
+        assert username != null;
         db.truncate(username);
     }
 
@@ -101,22 +111,6 @@ public class DataBean implements Serializable {
 
     public void setLastR(String lastR) {
         this.lastR = lastR;
-    }
-
-    public String getLastOffset() {
-        return lastOffset;
-    }
-
-    public void setLastOffset(String lastOffset) {
-        this.lastOffset = lastOffset;
-    }
-
-    public boolean isLastHit() {
-        return lastHit;
-    }
-
-    public void setLastHit(boolean lastHit) {
-        this.lastHit = lastHit;
     }
 
     public String getCanvasX() {

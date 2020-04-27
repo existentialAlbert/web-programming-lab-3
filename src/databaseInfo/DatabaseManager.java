@@ -9,19 +9,12 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class DatabaseManager {
-    private int a;
     private SessionFactory sessionFactory = HibernateSessionFactoryUtil.getSessionFactory();
-    /*static {
-        try {
-            sessionFactory = HibernateSessionFactoryUtil.getSessionFactory();
-        } catch (Exception e0) {
-            e0.printStackTrace();
-        }
-    }*/
+
     public DatabaseManager() {
     }
 
-    public void add(Point p, String username) {
+    public void add(Point p) {
         try (Session s = sessionFactory.openSession()) {
             s.save(p);
             Transaction tr = s.beginTransaction();
@@ -48,7 +41,7 @@ public class DatabaseManager {
             Transaction tx = s.beginTransaction();
             Query q = s.createQuery("delete Point where username = :usr");
             q.setParameter("usr", username);
-            int result = q.executeUpdate();
+            q.executeUpdate();
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();

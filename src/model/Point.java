@@ -1,10 +1,9 @@
 package model;
 
+import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.util.function.BiFunction;
-import java.util.function.Predicate;
 import javax.persistence.*;
 
 @Entity
@@ -16,58 +15,43 @@ public class Point implements Serializable {
     private double y;
     @Column(name = "R")
     private double r;
-    @Transient
-    private boolean hit;
-    @Id
-    private OffsetDateTime time;
+    @Column(name = "USERNAME")
+    private String username;
     @Column(name = "PRECISION")
     private String precision;
+    @Id
+    private OffsetDateTime time;
+
+    @Transient
+    private boolean hit;
     @Transient
     private int offset;
     @Transient
-    private String Date;
-    @Column(name = "USERNAME")
-    private String username;
+    private String date;
+
 
     public Point() {
     }
-    private Point(double x, double y, double r) {
+    public Point(double x, double y, double r, int offset, String username) {
         this.x = x;
         this.y = y;
         this.r = r;
         hit = false;
+        this.offset = offset;
+        this.username = username;
     }
 
-    public Point(String x, String y, String r) {
-        this(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(r));
-    }
-
-    public void check(Predicate<Double> x, Predicate<Double> y) {
-        hit = x.test(this.x) && y.test(this.y);
-        precision = hit ? "Попадание" : "Промах";
-    }
-
-    public void check(BiFunction<Double, Double, Boolean> condition) {
-        hit = condition.apply(x, y);
-        precision = hit ? "Попадание" : "Промах";
-    }
-
-    public void check(BigDecimal x, BigDecimal y, BigDecimal r) {
-        if (x.compareTo(new BigDecimal("0")) > 0 && y.compareTo(new BigDecimal("0")) < 0)
-            hit = false;
-        else if (x.compareTo(new BigDecimal("0")) < 0 && y.compareTo(new BigDecimal("0")) < 0)
-            hit = x.compareTo(r.divide(new BigDecimal("-2"), 1)) >= 0 && y.compareTo(r.multiply(new BigDecimal("-1"))) >= 0;
-        else if (x.compareTo(new BigDecimal("0")) > 0 && y.compareTo(new BigDecimal("0")) > 0)
-            hit = y.compareTo(r.subtract(x)) <= 0;
-        else if (x.compareTo(new BigDecimal("0")) < 0 && y.compareTo(new BigDecimal("0")) > 0)
-            hit = r.multiply(r).compareTo(x.multiply(x).add(y.multiply(y))) >= 0;
-        else if (x.compareTo(new BigDecimal("0")) == 0 || y.compareTo(new BigDecimal("0")) == 0)
-            hit = x.compareTo(r) <= 0 && y.compareTo(r) <= 0;
-        precision = hit ? "Попадание" : "Промах";
+    public Point(String x, String y, String r, int offset, String username) {
+        this(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(r), offset, username);
     }
 
     public boolean isHit() {
         return hit;
+    }
+
+    public void setHit(boolean hit) {
+        this.hit = hit;
+        precision = hit ? "Попадание" : "Промах";
     }
 
     public double getX() {
@@ -88,16 +72,12 @@ public class Point implements Serializable {
 
     public void setTime(OffsetDateTime time) {
         this.time = time;
+        this.date = time.getDayOfMonth() + "." + time.getMonthValue() + "." + time.getYear() +
+                "\n" + time.getHour() + ":" + time.getMinute() + ":" + time.getSecond();
     }
 
     public String getDate() {
-        setDate("");
-        return Date;
-    }
-
-    public void setDate(String date) {
-        Date = time.getDayOfMonth() + "." + time.getMonthValue() + "." + time.getYear() +
-                "\n" + time.getHour() + ":" + time.getMinute() + ":" + time.getSecond();
+        return date;
     }
 
     public int getOffset() {

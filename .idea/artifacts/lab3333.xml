@@ -1,24 +1,23 @@
 <component name="ArtifactManager">
   <artifact type="war" name="lab3333">
-    <output-path>$PROJECT_DIR$/out/artifacts/lab3333_war_exploded.war</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/lab3333</output-path>
     <root id="archive" name="lab3333.war">
-      <element id="javaee-facet-resources" facet="lab3333/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="lab3333" />
+          <element id="jpa-descriptors" facet="lab3333/jpa/JPA" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="PrimeFaces-6.1" />
           <element id="library" level="project" name="Hibernate 5.4.9-5.4.9" />
-          <element id="library" level="project" name="JPA 2.0-2.0" />
-          <element id="library" level="project" name="JBoss Weld-2.0.3" />
-          <element id="library" level="project" name="Mojarra-2.4.0" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/junit-jupiter-api-5.7.0-M1.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/apiguardian-api-1.1.0.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/opentest4j-1.2.0.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/junit-platform-commons-1.7.0-M1.jar" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="lab3333/javaeeApplication/javaEEApplication" />
+      <element id="javaee-facet-resources" facet="lab3333/web/Web" />
     </root>
   </artifact>
 </component>
