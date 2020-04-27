@@ -1,0 +1,45 @@
+table {
+    margin: 0 auto;
+    width: 60%;
+    background-color: #FFFFFF;
+    border-spacing: 20px;
+    border: 1px solid;
+    border-radius: 15px;
+}
+
+td, th {
+    border: 1px solid;
+    width: 15%;
+    text-align: center
+}
+
+tr:nth-child(even) {
+    background: #b1b1b2;
+}
+
+tr:last-child {
+    background-color: #FFFFFF;
+}
+
+#error_row {
+    background: #FA8072;
+}
+
+th {
+    border-radius: 15px;
+    border: 1px solid;
+    width: 33%;
+    background-color: #888888;
+    padding: 1.5%;
+    font-family: monospace;
+    font-size: 22px;
+    color: #000000;
+}
+
+#group:hover::after {
+    content: " | Программная инженерия"
+}
+
+#var:hover::before {
+    content: "Вариант "
+}

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://primefaces.org/ui ">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Lab 3</title>
+    <link rel="stylesheet" href="css/mainPage.css"/>
+</h:head>
+<h:body style="background-image: url(css/images/bg5.jpg)">
+    <table id="checkbox">
+        <tr>
+            <td colspan="4">
+                <h:outputLabel id="warning_label" for="y">
+                    Введите координаты точки
+                </h:outputLabel>
+            </td>
+            <td colspan="2">
+                <h:outputLabel id="loggedIn">
+                    Вы вошли как #{data.username}
+                </h:outputLabel>
+                <script>
+                    a = '#{data.username}';
+                    console.log(a);
+                    if (a === "")
+                        document.getElementById("loggedIn").innerText = "Авторизуйтесь, чтобы сохранить точку."
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <h:form id="canvas-form">
+                    <h:inputHidden id="CanvasX" value="#{data.canvasX}"/>
+                    <h:inputHidden id="CanvasY" value="#{data.canvasY}"/>
+                    <canvas id="canvas" width="300px" height="300px"/>
+                    <p:remoteCommand name="checkCanvas" action="#{data.addCanvasPoint}"
+                                     oncomplete="drawPointsFromTable()"
+                                     update="beanData result-table"/>
+                    <h:panelGroup id="beanData">
+                        <script type="text/javascript">
+                            xBean = '#{data.canvasX}';
+                            yBean = '#{data.canvasY}';
+                            resBean = '#{data.lastHit}';
+                        </script>
+                    </h:panelGroup>
+                </h:form>
+                <f:view>Area</f:view>
+            </td>
+            <td colspan="3">
+                <h:form onsubmit="return sub()" id="main">
+                    <table>
+                        <tr>
+                            <td colspan="6">
+                                <label>
+                                    Выберите X
+                                    <br/>
+                                    <h:selectOneMenu id="x" value="#{data.lastX}" required="true">
+                                        <f:selectItem itemValue="-4" itemLabel="-4"/>
+                                        <f:selectItem itemValue="-3" itemLabel="-3"/>
+                                        <f:selectItem itemValue="-2" itemLabel="-2"/>
+                                        <f:selectItem itemValue="-1" itemLabel="-1"/>
+                                        <f:selectItem itemValue="0" itemLabel="0"/>
+                                        <f:selectItem itemValue="1" itemLabel="1"/>
+                                        <f:selectItem itemValue="2" itemLabel="2"/>
+                                        <f:selectItem itemValue="3" itemLabel="3"/>
+                                        <f:selectItem itemValue="4" itemLabel="4"/>
+                                        <f:ajax event="click" render="submit"/>
+                                    </h:selectOneMenu>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <label id="Y">
+                                    Введите Y
+                                </label>
+                                <br/>
+                                <h:inputText id="y" value="#{data.lastY}" required="true" requiredMessage="Введите Y!"
+                                             onkeyup="validate()"
+                                             autocomplete="true" converterMessage="Y должен быть числом"
+                                             validatorMessage="Y должен быть числом от -3 до 3">
+                                    <f:validateDoubleRange minimum="-3.0" maximum="3.0"/>
+                                    <f:ajax event="change" render="submit"/>
+                                </h:inputText>
+                                <script type="text/javascript">
+                                    document.getElementById("main:y").value = "";
+                                </script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <label id="R">
+                                    Выберите радиус
+                                </label>
+                                <br/>
+                                <p:spinner id="r" min="1" max="3" stepFactor="0.5" value="#{data.lastR}">
+                                    <f:ajax event="change" render="getSpinnerValue submit"/>
+                                </p:spinner>
+                                <h:panelGroup id="getSpinnerValue">
+                                    <script type="text/javascript">
+                                        var canvas = document.getElementById("canvas");
+                                        var ctx = canvas.getContext("2d");
+                                        radius = '#{data.lastR}';
+                                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                        drawArea(radius);
+                                        drawAxis();
+                                        drawPointsFromTable();
+                                    </script>
+                                </h:panelGroup>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" align="center">
+                                <h:commandButton id="submit" value="Проверить" disabled="#{data.unlock()}"
+                                                 action="#{data.addPoint}" update="result-table getSpinnerValue">
+                                </h:commandButton>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <h:outputLabel>История запросов </h:outputLabel>
+                <h:commandButton id="clear-btn" action="#{data.clearHistory}" value="Очистить историю"
+                                 update="result-table refreshCanvas main:getSpinnerValue">
+                    <p:ajax event="click" update="refreshCanvas result-table"/>
+                    <p:ajax event="click" update="refreshCanvas result-table"/>
+
+                    <h:panelGroup id="refreshCanvas">
+                        <script type="text/javascript">
+                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                            drawArea(radius);
+                            drawAxis();
+                            drawPointsFromTable();
+                        </script>
+                    </h:panelGroup>
+                </h:commandButton>
+                <br/>
+                <h:dataTable value="#{data.history}" id="result-table" var="p">
+                    <h:column>
+                        <f:facet name="header">
+                            Координата X
+                        </f:facet>
+                        <h:panelGroup>
+                            #{p.x}
+                        </h:panelGroup>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Координата Y
+                        </f:facet>
+                        <h:panelGroup>
+                            #{p.y}
+                        </h:panelGroup>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Радиус
+                        </f:facet>
+                        #{p.r}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Попадание
+                        </f:facet>
+                        #{p.precision}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Время запроса
+                        </f:facet>
+                        #{p.date}
+                    </h:column>
+                </h:dataTable>
+                <h:form>
+                    <h:commandButton action="Return" value="Стартовая страница">
+                        <f:actionListener binding="#{data.setUsername(null)}"/>
+                    </h:commandButton></h:form>
+            </td>
+        </tr>
+    </table>
+    <script src="javascript/canvas.js" type="text/javascript"></script>
+    <script src="javascript/script.js" type="text/javascript"></script>
+</h:body>
+</html>

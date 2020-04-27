@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="${project.name}">
+	<!-- Using file with properties -->
+
+	<property file="build.properties"/>
+
+	<!-- Compiles all .java files in src directory -->
+
+	<target name="compile">
+		<mkdir dir="${compiled.dir}"/>
+		<javac destdir="${compiled.dir}" includeantruntime="false">
+			<src path="src"/>
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="*.jar"/>
+					<exclude name="junit*.jar"/>
+				</fileset>
+			</classpath>
+		</javac> 
+	</target>
+
+	<!-- Builds the project and packs it into a JAR archive -->
+
+	<target name="build" depends="compile">
+		<mkdir dir="${production.dir}"/>
+		<jar basedir="${compiled.dir}" jarfile="${production.dir}/${name}.jar">
+			<manifest>
+				<attribute name="main" value="${main.class}"/>
+				<attribute name="package-version" value="${project.version}"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- Wipes out all .class and temporary files -->
+
+	<target name="clean">
+		<delete>
+			<fileset dir="${compiled.dir}">
+				<include name="**/*.class"/>
+			</fileset>
+		</delete>
+		<delete>
+			<fileset dir="${temporary.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<!-- Launches JUnit-tests and builds the project beforehand -->
+	<target name="test">
+		<junitlauncher printsummary="on" haltonfailure="yes">
+			<path id="test.classpath">
+        		<pathelement path="src/test"/>
+       			<pathelement path="src/**"/>
+    		</path>
+			<formatter type="brief" usefile="false"/>
+			<batchtest>
+				<fileset dir="src/test">
+					<include name= "**/*Test.java"/>
+				</fileset>
+			</batchtest>
+		</junitlauncher>
+	</target>
+
+	<target name="music">
+
+	</target>
+</project>
+
