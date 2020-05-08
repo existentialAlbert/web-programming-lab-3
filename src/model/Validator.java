@@ -5,25 +5,24 @@ import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 public class Validator {
-    public static boolean isInArea(Point point, Predicate<Double> x, Predicate<Double> y) {
+    private static boolean isInArea(Point point, Predicate<Double> x, Predicate<Double> y) {
         return x.test(point.getX()) && y.test(point.getY());
     }
 
-    public static boolean isInArea(Point point, BiFunction<Double, Double, Boolean> condition) {
+    private static boolean isInArea(Point point, BiFunction<Double, Double, Boolean> condition) {
         return condition.apply(point.getX(), point.getY());
     }
 
     public static boolean bigNumbersCheck(Point p, BigDecimal x, BigDecimal y, BigDecimal r) {
         BigDecimal zero = new BigDecimal("0");
         boolean hit = false;
-        if (x.compareTo(zero) < 0 && y.compareTo(zero) < 0)
-            hit = x.compareTo(r.divide(new BigDecimal("-2"), 1)) >= 0 && y.compareTo(r.multiply(new BigDecimal("-1"))) >= 0;
-        else if (x.compareTo(zero) > 0 && y.compareTo(zero) > 0)
-            hit = y.compareTo(r.subtract(x)) <= 0;
-        else if (x.compareTo(zero) < 0 && y.compareTo(zero) > 0)
+        if (x.compareTo(zero) <= 0 && y.compareTo(zero) < 0)
+            hit = x.compareTo(r.divide(new BigDecimal(-2), 1)) >= 0 &&
+                    y.compareTo(r.multiply(new BigDecimal(-1))) >= 0;
+        else if (x.compareTo(zero) >= 0 && y.compareTo(zero) >= 0)
             hit = r.multiply(r).compareTo(x.multiply(x).add(y.multiply(y))) >= 0;
-        else if (x.compareTo(zero) == 0 || y.compareTo(zero) == 0)
-            hit = x.compareTo(r) <= 0 && y.compareTo(r) <= 0;
+        else if (x.compareTo(zero) <= 0 && y.compareTo(zero) >= 0)
+            hit = y.compareTo(r.add(x)) <= 0;
         p.setHit(hit);
         return hit;
     }

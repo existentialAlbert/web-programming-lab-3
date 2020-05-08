@@ -59,7 +59,6 @@ public class DataBean implements Serializable {
 
     public void addCanvasPoint() {
         Point p = new Point(canvasX, canvasY, lastR, Integer.parseInt(lastOffset), username);
-        p.setUsername(username);
         OffsetDateTime currentDate = OffsetDateTime.now();
         int offset = Integer.parseInt(lastOffset);
         int serverOffset = -180;

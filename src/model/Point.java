@@ -1,10 +1,8 @@
 package model;
 
-import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
-
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.OffsetDateTime;
-import javax.persistence.*;
 
 @Entity
 @Table(name = "POINTS")
@@ -32,7 +30,16 @@ public class Point implements Serializable {
 
     public Point() {
     }
+
     public Point(double x, double y, double r, int offset, String username) {
+        String a = "";
+        if (Math.abs(offset) > 1440)
+            a = "Смещение не может быть больше суток!";
+        else if (r < 0)
+            a = "Радиус не может быть отрицательным!";
+        if (!a.equals(""))
+            throw new IllegalArgumentException(a);
+
         this.x = x;
         this.y = y;
         this.r = r;
