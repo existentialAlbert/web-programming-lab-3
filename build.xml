@@ -63,7 +63,11 @@
 	</target>
 
 	<target name="music">
-
+		<sound>
+			<success source="sound.wav"/>
+		</sound>
+		<echo message="Music done" />
 	</target>
+
 </project>
 
