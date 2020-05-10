@@ -48,14 +48,18 @@
     <!-- Launches JUnit-tests and builds the project beforehand -->
 
     <target name="test">
-        <junitlauncher printsummary="on" haltonfailure="yes">
-            <formatter type="brief" usefile="false"/>
+        <junit printsummary="on" haltonfailure="yes">
+            <classpath>
+                <pathelement location="out/compiled/"/>
+                <pathelement location="lib/junit-4.12.jar"/>
+            </classpath>
             <batchtest>
                 <fileset dir="src/test">
-                    <include name="**/*Test.java"/>
+                    <include name="**/*Test*"/>
                 </fileset>
             </batchtest>
-        </junitlauncher>
+            <formatter type="brief" usefile="false"/>
+        </junit>
     </target>
 
     <path id="test.classpath">
