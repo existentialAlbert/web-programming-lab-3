@@ -7,7 +7,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
 
-class HibernateSessionFactoryUtil {
+public class HibernateSessionFactoryUtil {
     //XML based configuration
     private static SessionFactory sessionFactory;
 
@@ -42,7 +42,7 @@ class HibernateSessionFactoryUtil {
         }
     }
 
-    static SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory() {
         if (sessionFactory == null)
             sessionFactory = buildSessionFactory();
         return sessionFactory;

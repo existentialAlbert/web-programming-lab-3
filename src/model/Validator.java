@@ -23,7 +23,7 @@ public class Validator {
             hit = r.multiply(r).compareTo(x.multiply(x).add(y.multiply(y))) >= 0;
         else if (x.compareTo(zero) <= 0 && y.compareTo(zero) >= 0)
             hit = y.compareTo(r.add(x)) <= 0;
-        p.setHit(hit);
+        p.setPrecision(hit);
         return hit;
     }
 
@@ -38,7 +38,7 @@ public class Validator {
             hit = isInArea(point, a -> a >= -point.getR() / 2, b -> b >= -point.getR());
         if (x <= 0 && y >= 0)
             hit = isInArea(point, (a, b) -> b <= point.getR() + a);
-        point.setHit(hit);
+        point.setPrecision(hit);
         return hit;
     }
 }

@@ -15,13 +15,13 @@ public class Point implements Serializable {
     private double r;
     @Column(name = "USERNAME")
     private String username;
-    @Column(name = "PRECISION")
-    private String precision;
+    @Column(name = "HIT")
+    private String hit;
     @Id
     private OffsetDateTime time;
 
     @Transient
-    private boolean hit;
+    private boolean precision;
     @Transient
     private int offset;
     @Transient
@@ -32,18 +32,18 @@ public class Point implements Serializable {
     }
 
     public Point(double x, double y, double r, int offset, String username) {
-        String a = "";
-        if (Math.abs(offset) > 1440)
-            a = "Смещение не может быть больше суток!";
-        else if (r < 0)
-            a = "Радиус не может быть отрицательным!";
-        if (!a.equals(""))
-            throw new IllegalArgumentException(a);
+            String a = "";
+            if (Math.abs(offset) > 1440)
+                a = "Смещение не может быть больше суток!";
+            else if (r < 0)
+                a = "Радиус не может быть отрицательным!";
+            if (!a.equals(""))
+                throw new IllegalArgumentException(a);
 
         this.x = x;
         this.y = y;
         this.r = r;
-        hit = false;
+        setPrecision(false);
         this.offset = offset;
         this.username = username;
     }
@@ -52,13 +52,13 @@ public class Point implements Serializable {
         this(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(r), offset, username);
     }
 
-    public boolean isHit() {
-        return hit;
+    public boolean isPrecision() {
+        return precision;
     }
 
-    public void setHit(boolean hit) {
-        this.hit = hit;
-        precision = hit ? "Попадание" : "Промах";
+    public void setPrecision(boolean precision) {
+        this.precision = precision;
+        hit = precision ? "Попадание" : "Промах";
     }
 
     public double getX() {
@@ -95,12 +95,12 @@ public class Point implements Serializable {
         this.offset = offset;
     }
 
-    public String getPrecision() {
-        return precision;
+    public String getHit() {
+        return hit;
     }
 
-    public void setPrecision(String precision) {
-        this.precision = precision;
+    public void setHit(String hit) {
+        this.hit = hit;
     }
 
     public String getUsername() {
@@ -109,6 +109,11 @@ public class Point implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return x + "\n" + y + "\n" + r + "\n" + time + "\n" + hit + "\n" + username;
     }
 }
 

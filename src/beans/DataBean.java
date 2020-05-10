@@ -23,10 +23,11 @@ public class DataBean implements Serializable {
     private String canvasY;
     private List<Point> history;
     private String username;
-    private DatabaseManager db = new DatabaseManager();
+    private DatabaseManager db;
 
     public DataBean() {
-        history = db.getList(username);
+        db = new DatabaseManager();
+        history = db.getPoints(username);
     }
 
     public boolean unlock() {
@@ -42,19 +43,23 @@ public class DataBean implements Serializable {
         return false;
     }
 
-    public void addPoint() {
+    public Point addPoint() {
         Point p = new Point(lastX, lastY, lastR, Integer.parseInt(lastOffset), username);
         if (lastX.length() > 6 || lastR.length() > 6 || lastY.length() > 6) {
             BigDecimal bigR = new BigDecimal(lastR),
                     bigX = new BigDecimal(lastX),
                     bigY = new BigDecimal(lastY);
             Validator.bigNumbersCheck(p, bigX, bigY, bigR);
-        } else Validator.check(p);
+        } else
+            Validator.check(p);
+        OffsetDateTime currentDate = OffsetDateTime.now();
+        p.setTime(currentDate);
         if (username != null) {
-            history = db.getList(username);
+            history = db.getPoints(username);
             history.add(p);
-            db.add(p);
+            db.addPoint(p);
         }
+        return p;
     }
 
     public void addCanvasPoint() {
@@ -68,16 +73,16 @@ public class DataBean implements Serializable {
 
         Validator.check(p);
         if (username != null) {
-            history = db.getList(username);
+            history = db.getPoints(username);
             history.add(p);
-            db.add(p);
+            db.addPoint(p);
         }
     }
 
     public void clearHistory() {
         history = new LinkedList<>();
         assert username != null;
-        db.truncate(username);
+        db.deletePoints(username);
     }
 
     public List getHistory() {
@@ -134,6 +139,10 @@ public class DataBean implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
-        history = db.getList(username);
+        history = db.getPoints(username);
+    }
+
+    public void setLastOffset(String offset) {
+        lastOffset = offset;
     }
 }

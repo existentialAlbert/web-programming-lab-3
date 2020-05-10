@@ -41,6 +41,12 @@
         <item name="S251806: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="POINTS: table" type="942f455b:OraImplModel$Table" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@orbis" type="feb32156:DbDataSourceImpl" />
+        <item name="S251806: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="USERS: table" type="942f455b:OraImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -50,54 +56,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/beans/DataBean.java">
+        <entry file="file://$PROJECT_DIR$/src/databaseInfo/DatabaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+            <state relative-caret-position="154">
+              <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#759#760#0" expanded="true" />
-                <element signature="e#805#806#0" expanded="true" />
+                <element signature="e#0#33#1" expanded="true" />
+                <element signature="e#0#34#1" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/databaseInfo/hibernate.cfg.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/main.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
-              <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/model/Validator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/ValidatorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14">
-              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -105,11 +72,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Point.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="392">
+              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#setHit#0;class#Point#0" />
                 <element signature="method#setTime#0;class#Point#0" />
               </folding>
             </state>
@@ -117,10 +83,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/databaseInfo/HibernateSessionFactoryUtil.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-338">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/beans/DataBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="537">
+              <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,10 +104,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.xhtml">
+        <entry file="file://$PROJECT_DIR$/src/model/Validator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+            <state relative-caret-position="102">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/ValidatorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://b31bf4cf-7d22-4ede-821d-338830f9adf4/schema/S251806/table/POINTS">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state projectRestartId="962bc2b3-b4a0-42d6-baa3-a75ecd91f154">
+              <filtering />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b31bf4cf-7d22-4ede-821d-338830f9adf4/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/databaseInfo/HibernateSessionFactoryUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,6 +166,7 @@
         <option value="JavaScript File" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -162,12 +183,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/model/PointDAO.java" />
         <option value="$PROJECT_DIR$/src/META-INF/persistence.xml" />
-        <option value="b31bf4cf-7d22-4ede-821d-338830f9adf4/schema/S251806/table/POINTS.sql" />
         <option value="$PROJECT_DIR$/src/databaseInfo/hibernate.cfg.xml.fxml" />
         <option value="$PROJECT_DIR$/src/oracle/jdbc/OracleDriver.java" />
         <option value="$PROJECT_DIR$/src/beans/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/beans/UsernameBean.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b31bf4cf-7d22-4ede-821d-338830f9adf4/console.sql" />
         <option value="$PROJECT_DIR$/src/beans/UserBean.java" />
         <option value="$PROJECT_DIR$/web/javascript/script.js" />
         <option value="$PROJECT_DIR$/web/greeting.xhtml" />
@@ -182,11 +201,19 @@
         <option value="$PROJECT_DIR$/test/ValidatorTest.java" />
         <option value="$PROJECT_DIR$/build.properties" />
         <option value="$PROJECT_DIR$/src/test/PointTest.java" />
-        <option value="$PROJECT_DIR$/src/databaseInfo/DatabaseManager.java" />
-        <option value="$PROJECT_DIR$/src/beans/DataBean.java" />
-        <option value="$PROJECT_DIR$/src/model/Point.java" />
-        <option value="$PROJECT_DIR$/src/test/ValidatorTest.java" />
+        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/model/Validator.java" />
+        <option value="$PROJECT_DIR$/src/databaseInfo/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/src/test/DataBeanTest.java" />
+        <option value="$PROJECT_DIR$/src/beans/DataBeanTest.java" />
+        <option value="$PROJECT_DIR$/src/beans/DataBean.java" />
+        <option value="b31bf4cf-7d22-4ede-821d-338830f9adf4/schema/S251806/table/POINTS.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b31bf4cf-7d22-4ede-821d-338830f9adf4/console.sql" />
+        <option value="$PROJECT_DIR$/src/test/DatabaseOperationsTest.java" />
+        <option value="$PROJECT_DIR$/src/databaseInfo/DatabaseOperationsTest.java" />
+        <option value="$PROJECT_DIR$/src/model/Point.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/test/ValidatorTest.java" />
       </list>
     </option>
   </component>
@@ -209,18 +236,12 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="lab3333" type="b2602c69:ProjectViewProjectNode" />
               <item name="lab3333" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lab3333" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab3333" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lab3333" type="b2602c69:ProjectViewProjectNode" />
@@ -260,6 +281,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,7 +297,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -289,14 +312,15 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.21034482" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="test" />
+      <recent name="beans" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\angry_albert\IdeaProjects\lab3333" />
@@ -471,7 +495,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PointTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DatabaseOperationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lab3333" />
       <extension name="coverage">
         <pattern>
@@ -479,9 +503,25 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.PointTest" />
+      <option name="PACKAGE_NAME" value="databaseInfo" />
+      <option name="MAIN_CLASS_NAME" value="databaseInfo.DatabaseOperationsTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseOperationsTest.testAddPoints" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab3333" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="databaseInfo" />
+      <option name="MAIN_CLASS_NAME" value="databaseInfo.DatabaseOperationsTest" />
+      <option name="METHOD_NAME" value="testAddPoints" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -511,17 +551,58 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
+    <configuration name="DataBeanTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="lab3333" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="beans" />
+      <option name="MAIN_CLASS_NAME" value="test.DataBeanTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataBeanTest.addPoint" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="lab3333" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.DataBeanTest" />
+      <option name="METHOD_NAME" value="addPoint" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JAR Application.ojdbc8-19.3.0.0.jar" />
       <item itemvalue="JAR Application.orai18n.jar" />
       <item itemvalue="JBoss Server.JBoss 18.0.1.Final" />
-      <item itemvalue="JUnit.PointTest" />
       <item itemvalue="JUnit.ValidatorTest" />
+      <item itemvalue="JUnit.DatabaseOperationsTest.testAddPoints" />
+      <item itemvalue="JUnit.DatabaseOperationsTest" />
+      <item itemvalue="TestNG.DataBeanTest.addPoint" />
+      <item itemvalue="TestNG.DataBeanTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ValidatorTest" />
-        <item itemvalue="JUnit.PointTest" />
+        <item itemvalue="JUnit.DatabaseOperationsTest" />
+        <item itemvalue="JUnit.DatabaseOperationsTest.testAddPoints" />
+        <item itemvalue="TestNG.DataBeanTest" />
+        <item itemvalue="TestNG.DataBeanTest.addPoint" />
       </list>
     </recent_temporary>
   </component>
@@ -541,44 +622,50 @@
       <workItem from="1577300037711" duration="16158000" />
       <workItem from="1577991413300" duration="4463000" />
       <workItem from="1578064499120" duration="14184000" />
-      <workItem from="1587938811417" duration="11609000" />
+      <workItem from="1587938811417" duration="19820000" />
+      <workItem from="1588938059862" duration="5353000" />
+      <workItem from="1588948497276" duration="6024000" />
+      <workItem from="1588969984444" duration="1867000" />
+      <workItem from="1589018000437" duration="7102000" />
+      <workItem from="1589096986490" duration="2114000" />
+      <workItem from="1589100399545" duration="2591000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PointTest - 2020.04.27 at 11h 57m 46s.xml">
-      <configuration name="PointTest" configurationId="JUnit" />
+    <history-entry file="DataBeanTest - 2020.05.09 at 14h 39m 14s.xml">
+      <configuration name="DataBeanTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="PointTest - 2020.04.27 at 11h 58m 19s.xml">
-      <configuration name="PointTest" configurationId="JUnit" />
+    <history-entry file="DatabaseOperationsTest_testAddPoints - 2020.05.10 at 10h 50m 45s.xml">
+      <configuration name="DatabaseOperationsTest.testAddPoints" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PointTest - 2020.04.27 at 17h 25m 16s.xml">
-      <configuration name="PointTest" configurationId="JUnit" />
+    <history-entry file="DatabaseOperationsTest_testAddPoints - 2020.05.10 at 10h 51m 53s.xml">
+      <configuration name="DatabaseOperationsTest.testAddPoints" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest - 2020.04.27 at 18h 06m 57s.xml">
-      <configuration name="ValidatorTest" configurationId="JUnit" />
+    <history-entry file="DatabaseOperationsTest_testAddPoints - 2020.05.10 at 11h 03m 29s.xml">
+      <configuration name="DatabaseOperationsTest.testAddPoints" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest - 2020.04.27 at 18h 07m 31s.xml">
-      <configuration name="ValidatorTest" configurationId="JUnit" />
+    <history-entry file="DatabaseOperationsTest_testAddPoints - 2020.05.10 at 11h 08m 59s.xml">
+      <configuration name="DatabaseOperationsTest.testAddPoints" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest - 2020.04.27 at 18h 08m 29s.xml">
-      <configuration name="ValidatorTest" configurationId="JUnit" />
+    <history-entry file="DatabaseOperationsTest_testAddPoints - 2020.05.10 at 11h 10m 39s.xml">
+      <configuration name="DatabaseOperationsTest.testAddPoints" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest - 2020.04.27 at 18h 09m 57s.xml">
-      <configuration name="ValidatorTest" configurationId="JUnit" />
+    <history-entry file="DatabaseOperationsTest_testAddPoints - 2020.05.10 at 11h 35m 50s.xml">
+      <configuration name="DatabaseOperationsTest.testAddPoints" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest - 2020.04.27 at 18h 12m 17s.xml">
-      <configuration name="ValidatorTest" configurationId="JUnit" />
+    <history-entry file="DatabaseOperationsTest_testAddPoints - 2020.05.10 at 11h 36m 16s.xml">
+      <configuration name="DatabaseOperationsTest.testAddPoints" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest - 2020.04.27 at 18h 16m 25s.xml">
-      <configuration name="ValidatorTest" configurationId="JUnit" />
+    <history-entry file="DatabaseOperationsTest - 2020.05.10 at 11h 38m 51s.xml">
+      <configuration name="DatabaseOperationsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest - 2020.04.27 at 18h 28m 27s.xml">
+    <history-entry file="ValidatorTest - 2020.05.10 at 12h 23m 55s.xml">
       <configuration name="ValidatorTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96088000" />
+    <option name="totallyTimeSpent" value="129350000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -593,7 +680,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.23624161" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.25637585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.5021097" side_tool="true" weight="0.23624161" />
       <window_info id="Designer" order="3" />
@@ -606,7 +693,7 @@
       <window_info id="Web" order="10" sideWeight="0.5021097" side_tool="true" weight="0.23624161" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.86174494" visible="true" weight="0.2776204" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.86174494" visible="true" weight="0.3753541" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -685,23 +772,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/databaseInfo/Point.hbm.xml" />
     <entry file="file://$PROJECT_DIR$/src/model/PointDAO.java" />
-    <entry file="das://b31bf4cf-7d22-4ede-821d-338830f9adf4/schema/S251806/table/POINTS.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/databaseInfo/hibernate.cfg.xml.fxml" />
     <entry file="file://$PROJECT_DIR$/src/oracle/jdbc/OracleDriver.java" />
     <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b31bf4cf-7d22-4ede-821d-338830f9adf4/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/beans/UserBean.java" />
     <entry file="file://$PROJECT_DIR$/web/css/greetingPage.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -740,9 +813,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/beans/MyActionListener.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/beans/MyActionListener.java" />
     <entry file="file://$PROJECT_DIR$/web/css/mainPage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -757,13 +828,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/ValidatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ValidatorTest.java" />
     <entry file="file://$PROJECT_DIR$/build.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -778,22 +843,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_231/src.zip!/java/util/function/Predicate.java">
+    <entry file="file://$PROJECT_DIR$/src/test/PointTest.java" />
+    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        <state relative-caret-position="374">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/PointTest.java">
+    <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/main.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="38" column="65" lean-forward="true" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_231/src.zip!/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="66" column="25" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -804,19 +882,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://b31bf4cf-7d22-4ede-821d-338830f9adf4/schema/S251806/table/POINTS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="ba33b678-4d78-4a0c-9bca-9bea65c80759">
-          <filtering>
-            <filter text="" />
-          </filtering>
+    <entry file="das://b31bf4cf-7d22-4ede-821d-338830f9adf4/schema/S251806/table/POINTS.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="14" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/databaseInfo/DatabaseOperationsTest.java" />
     <entry file="file://$PROJECT_DIR$/src/databaseInfo/DatabaseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        <state relative-caret-position="154">
+          <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#0#33#1" expanded="true" />
@@ -825,65 +902,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://b31bf4cf-7d22-4ede-821d-338830f9adf4/schema/S251806/table/POINTS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="962bc2b3-b4a0-42d6-baa3-a75ecd91f154">
+          <filtering />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b31bf4cf-7d22-4ede-821d-338830f9adf4/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/databaseInfo/HibernateSessionFactoryUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-338">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="544">
+          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/main.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/test/DataBeanTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/beans/DataBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#805#806#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Point.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="392">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#setHit#0;class#Point#0" />
             <element signature="method#setTime#0;class#Point#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/beans/DataBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Validator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/ValidatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Validator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        <state relative-caret-position="158">
+          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -921,6 +1015,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>axios</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

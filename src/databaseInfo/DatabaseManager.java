@@ -14,18 +14,18 @@ public class DatabaseManager {
     public DatabaseManager() {
     }
 
-    public void add(Point p) {
+    public void addPoint(Point p) {
         try (Session s = sessionFactory.openSession()) {
-            s.save(p);
             Transaction tr = s.beginTransaction();
+            s.save(p);
             tr.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public List<Point> getList(String username) {
-        List Points = null;
+    public List<Point> getPoints(String username) {
+        List<Point> Points = null;
         try (Session ses = sessionFactory.openSession()) {
             Query query = ses.createQuery("FROM Point where  username = :usr");
             query.setParameter("usr", username);
@@ -36,7 +36,7 @@ public class DatabaseManager {
         return Points;
     }
 
-    public void truncate(String username) {
+    public void deletePoints(String username) {
         try (Session s = sessionFactory.openSession()) {
             Transaction tx = s.beginTransaction();
             Query q = s.createQuery("delete Point where username = :usr");
