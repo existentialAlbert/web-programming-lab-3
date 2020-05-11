@@ -78,4 +78,33 @@
         <echo message="Music done"/>
     </target>
 
+    <target name="alt" >
+
+        <replaceregexp file="build.properties" match="main.src.dir=src" replace="main.src.dir=alt_src" />
+        <replaceregexp file="build.properties" match="main.build.dir=build/main" replace="main.build.dir=${production.dir}/main_alt" />
+        <replaceregexp file="build.properties" match="jar.build.dir=build/jar" replace="jar.build.dir=${production.dir}/jar_alt" />
+
+        <copy todir="${src}">
+            <fileset dir="src"/>
+        </copy>
+
+        <antcall target="build" />
+
+        <replaceregexp file="build.properties" match="main.src.dir=(.)*" replace="main.src.dir=src" />
+        <replaceregexp file="build.properties" match="main.build.dir=(.)*" replace="main.build.dir=${production.dir}/main"/>
+        <replaceregexp file="build.properties" match="jar.build.dir=(.)*" replace="jar.build.dir=${production.dir}/jar"  />
+
+        <copy todir="${src}_old">
+            <fileset dir="src"/>
+        </copy>
+
+        <replaceregexp file="${src}/model/Point.java" match="Point" replace="POOINT" byline="true" />
+        <replaceregexp file="${src}/model/Validator.java" match="isInArea" replace="inArea" byline="true"/>
+        <replaceregexp file="${src}/beans/DataBean.java" match="Unlock" replace="ANLOCK" byline="true"/>
+
+        <move file="${src}/model/Point.java" tofile="${src}/model/POOINT.java" />
+
+        <antcall target="build" />
+    </target>
 </project>
+
