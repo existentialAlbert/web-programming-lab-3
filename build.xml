@@ -31,7 +31,7 @@
     </target>
 
     <target name="war" depends="compile">
-        <war destfile="${production.dir}/lab3333.war" webxml="${web.info}/web.xml">
+        <war destfile="${production.dir}/lab3333.war" webxml="${web}/web.xml">
             <classes dir="${src}"/>
             <fileset dir="${web}"/>
         </war>
@@ -42,7 +42,7 @@
 
     <target name="clean">
         <delete>
-            <fileset dir="${compiled.dir}">
+            <fileset dir="${out}">
                 <include name="**/*.class"/>
             </fileset>
         </delete>
@@ -55,12 +55,12 @@
 
     <!-- Launches JUnit-tests and builds the project beforehand -->
 
-    <target name="test" depends="build" description="Compiles and launches tests">
-        <junit fork="true">
+    <target name="test" depends="build">
+        <junit fork="true" tempdir="${temporary.dir}">
             <classpath>
                 <pathelement location="${lib.dir}/junit-4.12.jar"/>
                 <pathelement location="${lib.dir}/hamcrest-core-1.3.jar"/>
-                <pathelement location="${compiled.logic}"/>
+                <pathelement location="${compiled.dir}"/>
                 <pathelement location="${test.dir}"/>
             </classpath>
             <test name="test.ValidatorTest">
@@ -78,19 +78,19 @@
         <echo message="Music done"/>
     </target>
 
-    <target name="alt" >
+    <target name="alt">
 
         <copy todir="${src}_old">
             <fileset dir="src"/>
         </copy>
 
-        <replaceregexp file="${src}/model/Point.java" match="Point" replace="POOINT" byline="true" />
+        <replaceregexp file="${src}/model/Point.java" match="Point" replace="POOINT" byline="true"/>
         <replaceregexp file="${src}/model/Validator.java" match="isInArea" replace="inArea" byline="true"/>
         <replaceregexp file="${src}/beans/DataBean.java" match="Unlock" replace="ANLOCK" byline="true"/>
 
-        <move file="${src}/model/Point.java" tofile="${src}/model/POOINT.java" />
+        <move file="${src}/model/Point.java" tofile="${src}/model/POOINT.java"/>
 
-        <antcall target="build" />
+        <antcall target="build"/>
     </target>
 </project>
 
