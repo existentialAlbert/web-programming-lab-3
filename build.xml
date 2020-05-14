@@ -22,10 +22,10 @@
 
     <target name="build" depends="compile">
         <mkdir dir="${production.dir}"/>
-        <jar basedir="${compiled.dir}" jarfile="${production.dir}/${project.name}.jar">
+        <jar basedir="${compiled.dir}" jarfile="${production.dir}/lab3333.jar">
             <manifest>
-                <attribute name="title" value="${project.name}"/>
-                <attribute name="package-version" value="${project.version}"/>
+                <attribute name="title" value="lab3333"/>
+                <attribute name="package-version" value="${version}"/>
             </manifest>
         </jar>
     </target>
