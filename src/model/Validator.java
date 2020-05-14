@@ -5,11 +5,11 @@ import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 public class Validator {
-    private static boolean isInArea(Point point, Predicate<Double> x, Predicate<Double> y) {
+    private static boolean inArea(Point point, Predicate<Double> x, Predicate<Double> y) {
         return x.test(point.getX()) && y.test(point.getY());
     }
 
-    private static boolean isInArea(Point point, BiFunction<Double, Double, Boolean> condition) {
+    private static boolean inArea(Point point, BiFunction<Double, Double, Boolean> condition) {
         return condition.apply(point.getX(), point.getY());
     }
 
@@ -31,13 +31,13 @@ public class Validator {
         boolean hit = false;
         double x = point.getX(), y = point.getY();
         if (x >= 0 && y >= 0)
-            hit = isInArea(point, (a, b) -> a * a + b * b <= point.getR() * point.getR());
+            hit = inArea(point, (a, b) -> a * a + b * b <= point.getR() * point.getR());
         if (x > 0 && y < 0)
-            hit = isInArea(point, a -> false, b -> false);
+            hit = inArea(point, a -> false, b -> false);
         if (x <= 0 && y < 0)
-            hit = isInArea(point, a -> a >= -point.getR() / 2, b -> b >= -point.getR());
+            hit = inArea(point, a -> a >= -point.getR() / 2, b -> b >= -point.getR());
         if (x <= 0 && y >= 0)
-            hit = isInArea(point, (a, b) -> b <= point.getR() + a);
+            hit = inArea(point, (a, b) -> b <= point.getR() + a);
         point.setPrecision(hit);
         return hit;
     }

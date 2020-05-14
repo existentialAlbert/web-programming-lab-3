@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="${project.name}">
+<project name="${name}">
     <!-- Using file with properties -->
 
     <property file="build.properties"/>
@@ -24,7 +24,7 @@
         <mkdir dir="${production.dir}"/>
         <jar basedir="${compiled.dir}" jarfile="${production.dir}/lab3333.jar">
             <manifest>
-                <attribute name="title" value="lab3333"/>
+                <attribute name="title" value="${name}"/>
                 <attribute name="package-version" value="${version}"/>
             </manifest>
         </jar>
@@ -74,6 +74,7 @@
     <target name="music">
         <sound>
             <success source="sound.wav"/>
+            <fail source="failure.wav"/>
         </sound>
         <echo message="Music done"/>
     </target>
@@ -84,12 +85,22 @@
             <fileset dir="src"/>
         </copy>
 
-        <replaceregexp file="${src}/model/Point.java" match="Point" replace="POOINT" byline="true"/>
         <replaceregexp file="${src}/model/Validator.java" match="isInArea" replace="inArea" byline="true"/>
         <replaceregexp file="${src}/beans/DataBean.java" match="Unlock" replace="ANLOCK" byline="true"/>
-
-        <move file="${src}/model/Point.java" tofile="${src}/model/POOINT.java"/>
-
+        <replaceregexp file="${src}/beans/DataBean.java" match="DataBean" replace="CoffeeBean" byline="true"/>
+<!--        <replaceregexp file="${html}/index.xhtml" match="*DataBean*" replace="*CoffeeBean*" byline="true"/>-->
+<!--        <replaceregexp file="${html}/main.xhtml" match="*DataBean*" replace="*CoffeeBean*" byline="true"/>-->
+<!--        <replaceregexp file="${web}/faces-config.xhtml" match="*DataBean*" replace="*CoffeeBean*" byline="true"/>-->
+        <replaceregexp file="**/*" match="DataBean*" replace="CoffeeBean" byline="true"/>
+        <copy todir="${src}/beans/" verbose="true" overwrite="true">
+            <fileset dir="${src}/beans/"/>
+            <globmapper from="Data*.java" to="Coffee*.java"/>
+        </copy>
+        <delete>
+            <fileset dir="${src}/beans">
+                <include name="DataBean.java"/>
+            </fileset>
+        </delete>
         <antcall target="build"/>
     </target>
 </project>

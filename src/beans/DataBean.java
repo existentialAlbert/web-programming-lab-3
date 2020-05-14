@@ -37,7 +37,7 @@ public class DataBean implements Serializable {
             double r = Double.parseDouble(lastR);
             if (y >= 3 || y <= -3 || x > 4 || x < -4)
                 return true;
-        } catch (NumberFormatException | NullPointerException e) {
+        } catch (NumberFormatException e) {
             return true;
         }
         return false;
